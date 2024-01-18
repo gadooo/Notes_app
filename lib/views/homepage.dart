@@ -17,6 +17,8 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.lightBlue,
         onPressed: () {
           showModalBottomSheet(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16)),
               context: context,
               builder: (context) {
                 return const AddNoteButtmSheet();
