@@ -1,5 +1,4 @@
 import 'package:easy_note/views/widgets/custom_app_bar.dart';
-import 'package:easy_note/views/widgets/custom_note_item.dart';
 import 'package:easy_note/views/widgets/custom_note_list_view.dart';
 import 'package:flutter/material.dart';
 
