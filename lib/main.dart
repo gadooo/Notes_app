@@ -14,6 +14,7 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        fontFamily: 'Poppins',
         brightness: Brightness.dark,
       ),
       home: const HomePage(),
