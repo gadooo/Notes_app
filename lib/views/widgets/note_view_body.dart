@@ -1,3 +1,4 @@
+import 'package:easy_note/views/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 
 class NoteviewBody extends StatelessWidget {
@@ -5,6 +6,11 @@ class NoteviewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return const Column(children: [
+      Padding(
+        padding: EdgeInsets.only(top: 30.0),
+        child: CustomAppBar(),
+      ),
+    ]);
   }
 }
