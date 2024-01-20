@@ -1,3 +1,4 @@
+import 'package:easy_note/views/edit_note_view.dart';
 import 'package:flutter/material.dart';
 
 class NoteItem extends StatelessWidget {
@@ -5,39 +6,47 @@ class NoteItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(24),
-      decoration: BoxDecoration(
-          color: Colors.amber[100], borderRadius: BorderRadius.circular(16)),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
-        ListTile(
-          contentPadding: EdgeInsets.zero,
-          title: const Text(
-            "Flutter Tips",
-            style: TextStyle(color: Colors.black, fontSize: 30),
-          ),
-          subtitle: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10),
-            child: Text(
-              "Build youer carerr with easy ",
-              style:
-                  TextStyle(color: Colors.black.withOpacity(0.5), fontSize: 18),
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return const EditNoteView();
+        }));
+      },
+      child: Container(
+        padding: const EdgeInsets.all(24),
+        decoration: BoxDecoration(
+            color: Colors.amber[100], borderRadius: BorderRadius.circular(16)),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
+          ListTile(
+            contentPadding: EdgeInsets.zero,
+            title: const Text(
+              "Flutter Tips",
+              style: TextStyle(color: Colors.black, fontSize: 30),
             ),
+            subtitle: Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10),
+              child: Text(
+                "Build youer carerr with easy ",
+                style: TextStyle(
+                    color: Colors.black.withOpacity(0.5), fontSize: 18),
+              ),
+            ),
+            trailing: IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.delete,
+                  color: Colors.black,
+                  size: 40,
+                )),
           ),
-          trailing: IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.delete,
-                color: Colors.black,
-                size: 40,
-              )),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(right: 16),
-          child: Text('may 21,2024',
-              style: TextStyle(color: Colors.black.withOpacity(0.5))),
-        )
-      ]),
+          Padding(
+            padding: const EdgeInsets.only(right: 16),
+            child: Text('may 21,2024',
+                style: TextStyle(color: Colors.black.withOpacity(0.5))),
+          )
+        ]),
+      ),
     );
   }
 }
