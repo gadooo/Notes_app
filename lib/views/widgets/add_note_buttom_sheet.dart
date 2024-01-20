@@ -1,3 +1,4 @@
+import 'package:easy_note/views/widgets/custom_text_filde.dart';
 import 'package:flutter/material.dart';
 
 class AddNoteButtmSheet extends StatelessWidget {
@@ -5,6 +6,8 @@ class AddNoteButtmSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return const Column(
+      children: [CustomTextFilde()],
+    );
   }
 }
