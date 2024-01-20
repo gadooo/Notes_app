@@ -7,20 +7,57 @@ class AddNoteButtmSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      children: [
-        CustomTextFilde(
-          hint: 'title',
-        ),
-        CustomTextFilde(
-          hint: 'content',
-          maxLines: 5,
-        ),
-        Padding(
-          padding: EdgeInsets.only(left: 16, right: 16, top: 39),
-          child: CustomButtom(),
-        )
-      ],
+    return const AddNoteFormField();
+  }
+}
+
+class AddNoteFormField extends StatefulWidget {
+  const AddNoteFormField({
+    super.key,
+  });
+
+  @override
+  State<AddNoteFormField> createState() => _AddNoteFormFieldState();
+}
+
+class _AddNoteFormFieldState extends State<AddNoteFormField> {
+  final GlobalKey<FormState> form = GlobalKey();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  String? title, subTitle;
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key: form,
+      child: Column(
+        children: [
+          CustomTextFilde(
+            onsaved: (value) {
+              title = value;
+            },
+            hint: 'title',
+          ),
+          CustomTextFilde(
+            onsaved: (value) {
+              subTitle = value;
+            },
+            hint: 'content',
+            maxLines: 5,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 16, right: 16, top: 39),
+            child: CustomButtom(
+              ontap: () {
+                if (form.currentState!.validate()) {
+                  form.currentState!.save();
+                } else {
+                  autovalidateMode = AutovalidateMode.always;
+                }
+                setState(() {});
+              },
+            ),
+          )
+        ],
+      ),
     );
   }
 }
