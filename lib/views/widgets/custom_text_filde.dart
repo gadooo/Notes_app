@@ -2,16 +2,20 @@ import 'package:easy_note/constans.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextFilde extends StatelessWidget {
-  const CustomTextFilde({super.key});
+  const CustomTextFilde({super.key, required this.hint, this.maxLines = 1});
+  final String hint;
+  final int maxLines;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 32),
+      padding:
+          const EdgeInsets.only(left: 16.0, right: 16.0, bottom: 0, top: 32),
       child: TextField(
+        maxLines: maxLines,
         cursorColor: kprimaryColor,
         decoration: InputDecoration(
-            hintText: 'title',
+            hintText: hint,
             hintStyle: const TextStyle(color: Colors.white, fontSize: 18),
             border: customBorder(),
             focusedBorder: customBorder(kprimaryColor)),

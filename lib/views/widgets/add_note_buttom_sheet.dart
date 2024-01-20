@@ -7,7 +7,15 @@ class AddNoteButtmSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Column(
-      children: [CustomTextFilde()],
+      children: [
+        CustomTextFilde(
+          hint: 'title',
+        ),
+        CustomTextFilde(
+          hint: 'content',
+          maxLines: 5,
+        )
+      ],
     );
   }
 }
